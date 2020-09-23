@@ -1,13 +1,13 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-const publicPath = path.join(__dirname, 'build' );
 const listingsRouter = require('./api/routes/listings');
 
 // const publicPath = path.join(__dirname, '../public');
 const port = process.env.PORT || 4000;
 
 
+const publicPath = path.join(__dirname, 'build' );
 app.use(express.static(publicPath));
 
 app.get('/test', (req, res)=> {
