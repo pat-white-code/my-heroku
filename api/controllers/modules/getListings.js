@@ -18,8 +18,8 @@ const getListings = async (req, res) => {
     await client.connect();
     const cursor = client.db("sample_airbnb").collection("listingsAndReviews")
       .find(filter)
-      .limit(100)
-      .project({_id: 0, description: 1})
+      .limit(25)
+      // .project({_id: 0, description: 1})
 
     const results = await cursor.toArray();
     res.json(results);

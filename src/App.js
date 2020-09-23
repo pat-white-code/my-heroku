@@ -4,6 +4,10 @@ import './App.css';
 import axios from 'axios';
 
 function App () {
+  const getListings = async() => {
+    let res = await axios.get('/api/listings');
+    console.log(res.data);
+  }
   const test = async () => {
     let response = await axios.get('/test');
     console.log(response);
@@ -16,6 +20,7 @@ function App () {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <button onClick={test}> TEST SERVER </button>
+        <button onClick={getListings}> GET LISTINGS </button>
         <a
           className="App-link"
           href="https://reactjs.org"
