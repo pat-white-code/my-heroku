@@ -1,36 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import Home from './components/Home';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+
 import './App.css';
-import axios from 'axios';
 
 function App () {
-  const getListings = async() => {
-    let res = await axios.get('/api/listings');
-    console.log(res.data);
-  }
-  const test = async () => {
-    let response = await axios.get('/test');
-    console.log(response);
-  }
+  // const getListings = async() => {
+  //   let res = await axios.get('/api/listings');
+  //   console.log(res.data);
+  // }
+  // const test = async () => {
+  //   let response = await axios.get('/test');
+  //   console.log(response);
+  // }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <button onClick={test}> TEST SERVER </button>
-        <button onClick={getListings}> GET LISTINGS </button>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store ={store}>
+      <Home />
+    </Provider>
   );
 }
 
